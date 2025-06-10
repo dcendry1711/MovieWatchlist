@@ -3,11 +3,9 @@ const searchBtn = document.getElementById('search-button')
 const emptyList = document.getElementById('empty-list')
 const filmList = document.getElementById('film-list')
 
-const filmArray = []
+searchBtn.addEventListener('click', renderSearchMovies)
 
-searchBtn.addEventListener('click', addMoviesToLocalArray)
-
-function addMoviesToLocalArray(){
+function renderSearchMovies(){
     emptyList.style.display = 'none'
     fetch(`http://www.omdbapi.com/?s=${inputEl.value}&type=movie&apikey=38e170a6`)
     .then(res => res.json())
