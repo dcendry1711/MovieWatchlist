@@ -89,7 +89,7 @@ input {
     gap: 1em;
 }
 
-.rating-section, .watchlist-section {
+.rating-section, .watchlist-section, .remove-section {
     display: flex;
 }
 
@@ -103,7 +103,7 @@ input {
     font-size: .9rem;
 }
 
-#watchlist-btn, #add-film {
+#watchlist-btn, #add-film, #remove-btn {
     display: flex;
     justify-content: center;
     align-items: center;

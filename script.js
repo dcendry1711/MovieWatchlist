@@ -3,6 +3,8 @@ const searchBtn = document.getElementById('search-button')
 const emptyList = document.getElementById('empty-list')
 const filmList = document.getElementById('film-list')
 
+const selectedMoviesArr = []
+
 searchBtn.addEventListener('click', renderSearchMovies)
 
 function renderSearchMovies(){
@@ -48,7 +50,8 @@ function renderSearchMovies(){
 
 document.addEventListener('click', function(e){
     if(e.target.id === 'watchlist-btn'){
-        console.log(e.target.dataset.movie)
-        localStorage.setItem("movie", JSON.stringify(e.target.dataset.movie))
+        selectedMoviesArr.push(e.target.dataset.movie)
+        console.log(selectedMoviesArr)
+        localStorage.setItem("movies", JSON.stringify(selectedMoviesArr))
     }
 })
