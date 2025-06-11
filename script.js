@@ -10,12 +10,12 @@ searchBtn.addEventListener('click', renderSearchMovies)
 function renderSearchMovies(){
     filmList.innerHTML = ''
     emptyList.style.display = 'none'
-    fetch(`http://www.omdbapi.com/?s=${inputEl.value}&type=movie&apikey=38e170a6`)
+    fetch(`https://www.omdbapi.com/?s=${inputEl.value}&type=movie&apikey=38e170a6`)
     .then(res => res.json())
     .then(data => { 
         searchArray = data.Search.slice(0,5)
         searchArray.forEach(function(film){
-            fetch(`http://www.omdbapi.com/?t=${film.Title}&type=movie&apikey=38e170a6`)
+            fetch(`https://www.omdbapi.com/?t=${film.Title}&type=movie&apikey=38e170a6`)
                 .then(response => response.json())
                 .then(finf =>{
                     filmList.innerHTML += `

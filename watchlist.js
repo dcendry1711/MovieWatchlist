@@ -28,7 +28,7 @@ function renderWatchlist(arr){
     if (arr.length>0){
         emptyWatchlist.style.display = 'none'
         arr.forEach(function(film){
-            fetch(`http://www.omdbapi.com/?t=${film}&type=movie&apikey=38e170a6`)
+            fetch(`https://www.omdbapi.com/?t=${film}&type=movie&apikey=38e170a6`)
                 .then(res => res.json())
                 .then(film => {
                     filmList.innerHTML += `
