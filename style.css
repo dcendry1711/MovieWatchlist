@@ -30,53 +30,52 @@ h3 {
     font-size: 18px;
 }
 
-#search-section{
+#search-section {
     display: flex;
     justify-content: center;
     position: relative;
     top: -20px;
 }
 
-button, input {
+button,
+input {
     height: 38px;
     border: 1px solid #DFDDDD;
 }
 
 button {
     width: 120px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 0 5px 5px 0;
     cursor: pointer;
 }
 
 input {
     width: 342px;
-    padding-left: .5em;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    padding-left: 0.5em;
+    border-radius: 5px 0 0 5px;
 }
 
 #empty-list {
     display: flex;
-    width: 20%;
-    margin: 30% auto;
-    gap: .7em;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-}
-
-.single-movie{
-    display: flex;
-    gap: 1em;
-    align-items: center;
-    padding-bottom: 1em;
-    margin: 1em 0;
-    border-bottom: 1px solid #DFDDDD;
+    width: 20%;
+    margin: 30% auto;
+    gap: 0.7em;
 }
 
 #empty-list > h2 {
     color: #DFDDDD;
+}
+
+.single-movie {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin: 1em 0;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #DFDDDD;
 }
 
 #poster {
@@ -84,35 +83,40 @@ input {
     height: 280px;
 }
 
-.film-head, .film-body {
+.film-head,
+.film-body {
     display: flex;
-    gap: 1em;
+    gap: .8em;
 }
 
-.rating-section, .watchlist-section, .remove-section {
+.film-body {
+    justify-content: space-between;
+    padding: 2.5em 0;
+    font-size: 0.9rem;
+}
+
+.rating-section,
+.watchlist-section,
+.remove-section {
     display: flex;
 }
 
 .rating-section {
-    gap: .5em;
+    gap: 0.5em;
 }
 
-.film-body {
-    padding: 2.5em 0 2.5em;
-    justify-content: space-between;
-    font-size: .9rem;
-}
-
-#watchlist-btn, #add-film, #remove-btn {
+#watchlist-btn,
+#add-film,
+#remove-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: black;
-    color: white;
-    font-weight: bold;
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    background: black;
+    color: white;
+    font-weight: bold;
 }
 
 #plot {
@@ -128,19 +132,17 @@ a {
 .empty-watchlist {
     display: block;
     width: 50%;
-    margin: 0 auto;
-    margin-top: 10em;
+    margin: 10em auto 0;
     font-size: 1.125rem;
     color: gray;
 }
 
 .add-movie {
     display: flex;
-    margin-top: 1em;
     justify-content: center;
     align-items: center;
+    margin-top: 1em;
+    gap: 0.5em;
     font-size: 0.75rem;
-    gap: .5em;
 }
-
 

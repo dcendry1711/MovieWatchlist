@@ -1,19 +1,33 @@
 const emptyWatchlist = document.getElementById('empty-watchlist')
 let watchlistArr = JSON.parse(localStorage.getItem("movies"))
+console.log(watchlistArr)
 const filmList = document.getElementById('film-list')
 
 document.addEventListener('click',function(e){
-    console.log(e.target.dataset.movie)
-    if (e.target.dataset.movie){
-       //tutaj trzeba usunąć wybrany film z listy
+    if (e.target.id === 'remove-btn'){
+        removeMovieFromArr(e.target.dataset.movie)
     }
 })
 
+function removeMovieFromArr(remove){
+    const toRemove = watchlistArr.filter(movie => movie === remove)[0]
+    const actualArr = watchlistArr.filter(position => position !== toRemove)
+    localStorage.setItem("movies",JSON.stringify(actualArr))
+    watchlistArr = actualArr
+    if(watchlistArr.length>0){
+        filmList.innerHTML = ''
+        renderWatchlist(watchlistArr)
+    } else if(actualArr.length==0)  {
+        localStorage.clear()
+        filmList.innerHTML = ''
+        emptyWatchlist.style.display = 'block'
+    }
+}
 
-function renderWatchlist(){
-    if (watchlistArr.length>0){
+function renderWatchlist(arr){
+    if (arr.length>0){
         emptyWatchlist.style.display = 'none'
-        watchlistArr.forEach(function(film){
+        arr.forEach(function(film){
             fetch(`http://www.omdbapi.com/?t=${film}&type=movie&apikey=38e170a6`)
                 .then(res => res.json())
                 .then(film => {
@@ -44,7 +58,7 @@ function renderWatchlist(){
                     `
                 })
         })
-    }
-}           
+    }   
+ }     
 
-renderWatchlist()
+renderWatchlist(watchlistArr)

@@ -36,7 +36,7 @@ function renderSearchMovies(){
                                 <p>${finf.Genre}</p>
                                 <div class="watchlist-section">
                                     <button id="watchlist-btn" data-movie="${finf.Title}">+</button>
-                                    <p>Watchlist</p>
+                                    <p id="add-paragraph">Watchlist</p>
                                 </div>
                             </div>
                             <p id="plot">${finf.Plot}</p>
@@ -50,8 +50,9 @@ function renderSearchMovies(){
 
 document.addEventListener('click', function(e){
     if(e.target.id === 'watchlist-btn'){
+        document.getElementById(e.target.id).parentElement.innerHTML = `<p><strong>Dodano do listy</strong></p>`
+        if (!selectedMoviesArr.includes(e.target.dataset.movie))
         selectedMoviesArr.push(e.target.dataset.movie)
-        console.log(selectedMoviesArr)
         localStorage.setItem("movies", JSON.stringify(selectedMoviesArr))
     }
 })
