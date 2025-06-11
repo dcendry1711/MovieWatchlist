@@ -86,7 +86,7 @@ input {
 .film-head,
 .film-body {
     display: flex;
-    gap: .8em;
+    gap: 1em;
 }
 
 .film-body {

@@ -50,7 +50,6 @@ function renderSearchMovies(){
 
 document.addEventListener('click', function(e){
     if(e.target.id === 'watchlist-btn'){
-        document.getElementById(e.target.id).parentElement.innerHTML = `<p><strong>Dodano do listy</strong></p>`
         if (!selectedMoviesArr.includes(e.target.dataset.movie))
         selectedMoviesArr.push(e.target.dataset.movie)
         localStorage.setItem("movies", JSON.stringify(selectedMoviesArr))
