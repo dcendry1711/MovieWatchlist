@@ -26,6 +26,10 @@ h2 {
     font-size: 0.875rem;
 }
 
+h3 {
+    font-size: 18px;
+}
+
 #search-section{
     display: flex;
     justify-content: center;
@@ -66,16 +70,53 @@ input {
     display: flex;
     gap: 1em;
     align-items: center;
+    padding-bottom: 1em;
+    margin: 1em 0;
+    border-bottom: 1px solid #DFDDDD;
 }
 
 #empty-list > h2 {
     color: #DFDDDD;
 }
 
-hr {
-    margin: 1em 0;
+#poster {
+    width: 190px;
+    height: 280px;
+}
+
+.film-head, .film-body {
+    display: flex;
+    gap: 1em;
+}
+
+.rating-section, .watchlist-section {
+    display: flex;
+}
+
+.rating-section {
+    gap: .5em;
+}
+
+.film-body {
+    padding: 2.5em 0 2.5em;
+    justify-content: space-between;
+    font-size: .9rem;
 }
 
 #watchlist-btn {
-    margin: 5em 0 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }
+
+#plot {
+    color: gray;
+}
+
+

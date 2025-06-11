@@ -6,6 +6,7 @@ const filmList = document.getElementById('film-list')
 searchBtn.addEventListener('click', renderSearchMovies)
 
 function renderSearchMovies(){
+    filmList.innerHTML = ''
     emptyList.style.display = 'none'
     fetch(`http://www.omdbapi.com/?s=${inputEl.value}&type=movie&apikey=38e170a6`)
     .then(res => res.json())
@@ -18,20 +19,36 @@ function renderSearchMovies(){
                     filmList.innerHTML += `
                     <div class="single-movie">
                         <div class="film-poster">
-                            <img src="${finf.Poster}">
+                            <img src="${finf.Poster}" id="poster">
                         </div>
                         <div class="film-info">
-                            <h3>${finf.Title}</h3>
-                            <p>${finf.Rangetime}</p>
-                            <p>${finf.Genre}</p>
-                            <button id="watchlist-btn">Watchlist</button>
-                            <p>${finf.Plot}</p>
+                            <div class="film-head">
+                                <h3>${finf.Title}</h3>
+                                <div class="rating-section">
+                                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                    <p>${finf.imdbRating}</p>
+                                </div>
+                            </div>
+                            <div class="film-body">
+                                <p>${finf.Runtime}</p>
+                                <p>${finf.Genre}</p>
+                                <div class="watchlist-section">
+                                    <button id="watchlist-btn" data-movie="${finf.Title}">+</button>
+                                    <p>Watchlist</p>
+                                </div>
+                            </div>
+                            <p id="plot">${finf.Plot}</p>
                         </div>
                     </div>
-                    <hr>
                     `
                 })
             })
         })
 }
-     
+
+document.addEventListener('click', function(e){
+    if(e.target.id === 'watchlist-btn'){
+        console.log(e.target.dataset.movie)
+        localStorage.setItem("movie", JSON.stringify(e.target.dataset.movie))
+    }
+})
