@@ -35,8 +35,8 @@ function renderSearchMovies(){
                                 <p>${finf.Runtime}</p>
                                 <p>${finf.Genre}</p>
                                 <div class="watchlist-section">
-                                    <button id="watchlist-btn" data-movie="${finf.Title}">+</button>
-                                    <p id="add-paragraph">Watchlist</p>
+                                    <button id="watchlist-btn" data-movie="${finf.Title}" class="">+</button>
+                                    <p id="${finf.Title}">Watchlist</p>
                                 </div>
                             </div>
                             <p id="plot">${finf.Plot}</p>
@@ -44,12 +44,17 @@ function renderSearchMovies(){
                     </div>
                     `
                 })
+                
             })
         })
+    .catch(error => {
+        filmList.innerHTML = `<h2 id="error-message">Unable to find what you're looking for.<br>Please try another search.</h2>`
+    })
 }
 
 document.addEventListener('click', function(e){
     if(e.target.id === 'watchlist-btn'){
+        document.getElementById(e.target.dataset.movie).textContent = 'Added to list'
         if (!selectedMoviesArr.includes(e.target.dataset.movie))
         selectedMoviesArr.push(e.target.dataset.movie)
         localStorage.setItem("movies", JSON.stringify(selectedMoviesArr))

@@ -86,7 +86,7 @@ input {
 .film-head,
 .film-body {
     display: flex;
-    gap: 1em;
+    gap: .7em;
 }
 
 .film-body {
@@ -144,5 +144,12 @@ a {
     margin-top: 1em;
     gap: 0.5em;
     font-size: 0.75rem;
+}
+
+#error-message {
+    text-align: center;
+    margin-top: 7em;
+    color: #DFDDDD;
+    font-size: 1.3rem;
 }
 
